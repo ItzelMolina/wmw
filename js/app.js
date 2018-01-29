@@ -1,5 +1,4 @@
-(function() {
-  // Initialize Firebase
+// Initialize Firebase
   var config = {
     apiKey: "AIzaSyD6vzrDQUf54AC9ciacoec2U55LsRDOO9o",
     authDomain: "wmw1-e7633.firebaseapp.com",
@@ -26,7 +25,7 @@
     // Sign In
     const promise = auth.signWithEmailAndPassword(email, pass);
     promise.catch(e => console.log(e.message));
-  })
+  });
 
   // Evento Signup
   btncreateAcount.addEventListener('click', e => {
@@ -37,8 +36,7 @@
     // Sign In
     const promise = auth.createUserWithEmailAndPassword(email, pass);
     promise.catch(e => console.log(e.message));
-  })
-} ());
+  });
 
 $(document).ready(function(){
   $('.slider').slider();
