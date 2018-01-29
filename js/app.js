@@ -9,12 +9,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// Elementos
-const $userName = $('#first_name');
-const $userEmail = $('#first_name');
-const $userPassword = $('#password');
-const $btncreateAcount = $('#create_account');
-
 $('#google_account').click(function (){
   authGoogle();
 });
