@@ -1,42 +1,70 @@
 // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyD6vzrDQUf54AC9ciacoec2U55LsRDOO9o",
-    authDomain: "wmw1-e7633.firebaseapp.com",
-    databaseURL: "https://wmw1-e7633.firebaseio.com",
-    projectId: "wmw1-e7633",
-    storageBucket: "wmw1-e7633.appspot.com",
-    messagingSenderId: "134918050249"
-  };
-  firebase.initializeApp(config);
+var config = {
+  apiKey: "AIzaSyD6vzrDQUf54AC9ciacoec2U55LsRDOO9o",
+  authDomain: "wmw1-e7633.firebaseapp.com",
+  databaseURL: "https://wmw1-e7633.firebaseio.com",
+  projectId: "wmw1-e7633",
+  storageBucket: "wmw1-e7633.appspot.com",
+  messagingSenderId: "134918050249"
+};
+firebase.initializeApp(config);
 
-  // Elementos
-  const userName = document.getElementById('first_name');
-  const userEmail = document.getElementById('first_name');
-  const userPassword = document.getElementById('password');
-  const btncreateAcount = document.getElementById('create_acount');
-  const btnlogIn = document.getElementById('log_in');
+// Elementos
+const $userName = $('#first_name');
+const $userEmail = $('#first_name');
+const $userPassword = $('#password');
+const $btncreateAcount = $('#create_account');
 
-  // Evento Login
-  btnlogIn.addEventListener('click', e => {
-    // Obtener e-mail y password
-    const email = userEmail.value;
-    const pass = userPassword.value;
-    const auth = firebase.auth();
-    // Sign In
-    const promise = auth.signWithEmailAndPassword(email, pass);
-    promise.catch(e => console.log(e.message));
-  });
+$('#google_account').click(function (){
+  authGoogle();
+});
 
-  // Evento Signup
-  btncreateAcount.addEventListener('click', e => {
-    // Obtener e-mail y password
-    const email = userEmail.value;
-    const pass = userPassword.value;
-    const auth = firebase.auth();
-    // Sign In
-    const promise = auth.createUserWithEmailAndPassword(email, pass);
-    promise.catch(e => console.log(e.message));
-  });
+function authGoogle(){
+  var provider = new firebase.auth.GoogleAuthProvider();
+  authentication(provider);
+}
+
+function authentication(){
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+}
+
+// // Sign Up
+// firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // ...
+// });
+//
+// // Log In
+// firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // ...
+// });
+//
+// // Log Out
+// firebase.auth().signOut().then(function() {
+//   // Sign-out successful.
+// }).catch(function(error) {
+//   // An error happened.
+// });
 
 $(document).ready(function(){
   $('.slider').slider();
