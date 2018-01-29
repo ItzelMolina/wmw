@@ -13,7 +13,7 @@
     <div class="">
       <!--Section 1-->
       <div id="section_1" class="row grey darken-4 mb-0">
-        <div class="col l6">
+        <div class="col l6 hide-on-small-only">
           <div class="slider">
             <ul class="slides">
               <li>
@@ -47,13 +47,16 @@
             </ul>
           </div>
         </div>
-        <div class="col l6 grey lighten-3">
+        <div class="col s12 show-on-small hide-on-large-only center-align">
+          <h4 class="red-text text-darken-3 mt-0">What more watch...</h4>
+        </div>
+        <div id="user_form" class="col l4 offset-l1 s10 offset-s1 grey lighten-3">
           <div class="row">
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s6">
-                  <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                  <label for="first_name">First Name</label>
+                  <input id="first_name" type="text" class="validate">
+                  <label for="first_name">User Name</label>
                 </div>
               </div>
               <div class="row">
@@ -68,9 +71,7 @@
                   <label for="email">Email</label>
                 </div>
               </div>
-              <button class="btn waves-effect waves-light red darken-3" type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-              </button>
+              <button class="btn waves-effect waves-light red darken-3" type="submit" name="action">Entrar</button>
             </form>
           </div>
         </div>
