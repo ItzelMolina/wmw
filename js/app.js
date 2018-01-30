@@ -47,7 +47,7 @@ function goToPage(provider) {
     }
     // The signed-in user info.
     var user = result.user;
-    window.location = "views/page.html";
+    window.location = "../views/page.html";
 
   }).catch(function(error) {
     // Handle Errors here.
